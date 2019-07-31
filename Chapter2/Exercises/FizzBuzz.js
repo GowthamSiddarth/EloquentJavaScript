@@ -11,7 +11,9 @@ labor market value just went up.)
 */
 
 for (let num = 1; num <= 100; num++) {
-    if (0 == num % 3) {
+    if (0 == num % 15) {
+        console.log("FizzBuzz");
+    } else if (0 == num % 3) {
         console.log("Fizz");
     } else if (0 == num % 5) {
         console.log("Buzz");
