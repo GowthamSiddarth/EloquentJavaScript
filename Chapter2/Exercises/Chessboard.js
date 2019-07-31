@@ -15,3 +15,15 @@ When you have a program that generates this pattern, define a binding size
 = 8 and change the program so that it works for any size, outputting a grid
 of the given width and height.
 */
+
+let SIZE = 8;
+let WHITESPACE = ' ', POUND = '#';
+
+for (let rowIdx = 0; rowIdx < SIZE; rowIdx++) {
+    let string = 0 == rowIdx % 2 ? WHITESPACE : POUND;
+    let lastChar = string;
+    for (let colIdx = 1; colIdx < SIZE; colIdx++) {
+        string = string + (lastChar = (POUND == lastChar ? WHITESPACE : POUND));
+    }
+    console.log(string);
+}
