@@ -9,3 +9,13 @@ for numbers divisible by only one of those).
 a significant percentage of programmer candidates. So if you solved it, your
 labor market value just went up.)
 */
+
+for (let num = 1; num <= 100; num++) {
+    if (0 == num % 3) {
+        console.log("Fizz");
+    } else if (0 == num % 5) {
+        console.log("Buzz");
+    } else {
+        console.log(num);
+    }
+}
