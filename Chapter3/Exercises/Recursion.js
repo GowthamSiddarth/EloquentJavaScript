@@ -12,3 +12,18 @@ a Boolean.
 Test it on 50 and 75. See how it behaves on -1. Why? Can you think of a
 way to fix this?
 */
+
+const isEven = function (number) {
+    if (number < 0) {
+        return isEven(Math.abs(number));
+    } else if (0 === number) {
+        return true;
+    } else if (1 === number) {
+        return false;
+    } else {
+        return isEven(number - 2);
+    }
+}
+
+let number = -1;
+console.log(isEven(number));
