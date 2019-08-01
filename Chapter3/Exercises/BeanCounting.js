@@ -13,16 +13,20 @@ it takes a second argument that indicates the character that is to be counted
 make use of this new function.
 */
 
-const countBs = function (string) {
+const countChar = function (string, charToCount) {
     let count = 0;
     for (let index = 0; index < string.length; index++) {
         const char = string[index];
-        if ('B' === char) {
+        if (charToCount === char) {
             count++;
         }
     }
 
     return count;
+}
+
+const countBs = function (string) {
+    return countChar(string, 'B');
 }
 
 let string = "jwnvABAHBVViKIVBABAB";
