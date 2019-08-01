@@ -12,3 +12,18 @@ it takes a second argument that indicates the character that is to be counted
 (rather than counting only uppercase “B” characters). Rewrite countBs to
 make use of this new function.
 */
+
+const countBs = function (string) {
+    let count = 0;
+    for (let index = 0; index < string.length; index++) {
+        const char = string[index];
+        if ('B' === char) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+let string = "jwnvABAHBVViKIVBABAB";
+console.log(countBs(string));
