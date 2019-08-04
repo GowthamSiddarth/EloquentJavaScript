@@ -15,9 +15,16 @@ old behavior. The function call range(1, 10, 2) should return [1, 3, 5, 7,
 produces [5, 4, 3, 2].
 */
 
-function range(start, stop) {
+function range(start, stop, step = 1) {
+    if (0 == step) {
+        step = 1;
+    } else if (step < 1) {
+        step = Math.abs(step);
+        [start, stop] = [stop, start];
+    }
+
     let numbers = [];
-    for (let number = start; number <= stop; number++) {
+    for (let number = start; number <= stop; number = number + step) {
         numbers.push(number);
     }
 
@@ -33,4 +40,4 @@ function sum(numbers) {
     return _sum;
 }
 
-console.log(sum(range(33, 100)));
+console.log(sum(range(20, 10, -1)));
