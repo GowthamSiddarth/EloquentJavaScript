@@ -10,3 +10,11 @@ Thinking back to the notes about side effects and pure functions in the
 previous chapter, which variant do you expect to be useful in more situations?
 Which one runs faster?
 */
+
+const reverseArray = (array) => array.map((elem, index) => array[array.length - index - 1]);
+
+const reverseArrayInPlace = (array) => {
+    for (let index = 0; index < array.length / 2; index++) {
+        [array[index], array[array.length - index - 1]] = [array[array.length - index - 1], array[index]];
+    }
+}
