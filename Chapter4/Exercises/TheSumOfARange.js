@@ -14,3 +14,23 @@ old behavior. The function call range(1, 10, 2) should return [1, 3, 5, 7,
 9]. Make sure it also works with negative step values so that range(5, 2, -1)
 produces [5, 4, 3, 2].
 */
+
+function range(start, stop) {
+    let numbers = [];
+    for (let number = start; number <= stop; number++) {
+        numbers.push(number);
+    }
+
+    return numbers;
+}
+
+function sum(numbers) {
+    let _sum = 0;
+    for (let number of numbers) {
+        _sum = _sum + number;
+    }
+
+    return _sum;
+}
+
+console.log(sum(range(33, 100)));
