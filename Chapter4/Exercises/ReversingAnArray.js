@@ -18,3 +18,10 @@ const reverseArrayInPlace = (array) => {
         [array[index], array[array.length - index - 1]] = [array[array.length - index - 1], array[index]];
     }
 }
+
+let array = [...Array(5).keys()];
+console.log(array);
+console.log(reverseArray(array));
+console.log(array);
+reverseArrayInPlace(array);
+console.log(array);
