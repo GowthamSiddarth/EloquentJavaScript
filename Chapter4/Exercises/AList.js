@@ -98,11 +98,21 @@ const elementAt = (list, position) => {
     return 0 == position && null != currNode ? currNode : undefined;
 }
 
+const elementAtRec = (list, position) => {
+    if (position < 0) {
+        return undefined;
+    } else if (0 == position || null == list) {
+        return null == list ? undefined : list;
+    } else {
+        return elementAtRec(list.getRest(), position - 1);
+    }
+}
+
 let array = [...Array(10).keys()];
 let list = arrayToList(array)
 console.log(list);
 console.log(listToArray(list));
 list = prepend(list, new ListNode(-1));
 console.log(list);
-let node = elementAt(list, 0);
+let node = elementAtRec(list, 17);
 console.log(undefined != node ? node.getValue() : "undefined");
