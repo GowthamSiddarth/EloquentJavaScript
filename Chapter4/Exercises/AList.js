@@ -85,9 +85,24 @@ const listToArray = (listNode) => {
 
 const prepend = (list, elem) => elem.setRest(list) || elem;
 
+const elementAt = (list, position) => {
+    if (position < 0) {
+        return undefined;
+    }
+    let currNode = list;
+    while (position > 0 && null != currNode) {
+        currNode = currNode.getRest();
+        position--;
+    }
+
+    return 0 == position && null != currNode ? currNode : undefined;
+}
+
 let array = [...Array(10).keys()];
 let list = arrayToList(array)
 console.log(list);
 console.log(listToArray(list));
 list = prepend(list, new ListNode(-1));
 console.log(list);
+let node = elementAt(list, 0);
+console.log(undefined != node ? node.getValue() : "undefined");
