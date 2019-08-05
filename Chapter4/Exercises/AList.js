@@ -32,3 +32,26 @@ the element at the given position in the list (with zero referring to the first
 element) or undefined when there is no such element.
 If you haven’t already, also write a recursive version of nth.
 */
+
+let ListNode = class {
+    constructor(value) {
+        this.value = value;
+        this.rest = null;
+    }
+
+    getValue() {
+        return this.value;
+    }
+
+    setValue(value) {
+        this.value = value;
+    }
+
+    getRest() {
+        return this.rest;
+    }
+
+    setRest(listNode) {
+        this.rest = listNode;
+    }
+};
