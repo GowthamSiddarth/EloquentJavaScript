@@ -72,4 +72,18 @@ const arrayToList = (array) => {
     return headNode;
 };
 
-console.log(arrayToList([...Array(4).keys()]));
+const listToArray = (listNode) => {
+    let currNode = listNode;
+    let array = new Array();
+    while (null != currNode) {
+        array.push(currNode.getValue());
+        currNode = currNode.getRest();
+    }
+
+    return array;
+};
+
+let array = [...Array(10).keys()];
+let list = arrayToList(array)
+console.log(list);
+console.log(listToArray(list));
