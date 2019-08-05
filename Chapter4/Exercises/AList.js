@@ -55,3 +55,21 @@ let ListNode = class {
         this.rest = listNode;
     }
 };
+
+const arrayToList = (array) => {
+    let headNode = new ListNode();
+    array.reduce((headNode, arrayItem) => {
+        if (undefined == headNode.value) {
+            headNode.setValue(arrayItem)
+            return headNode;
+        } else {
+            let newNode = new ListNode(arrayItem);
+            headNode.setRest(newNode);
+            return newNode;
+        }
+    }, headNode);
+
+    return headNode;
+};
+
+console.log(arrayToList([...Array(4).keys()]));
