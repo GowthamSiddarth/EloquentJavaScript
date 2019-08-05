@@ -83,7 +83,11 @@ const listToArray = (listNode) => {
     return array;
 };
 
+const prepend = (list, elem) => elem.setRest(list) || elem;
+
 let array = [...Array(10).keys()];
 let list = arrayToList(array)
 console.log(list);
 console.log(listToArray(list));
+list = prepend(list, new ListNode(-1));
+console.log(list);
