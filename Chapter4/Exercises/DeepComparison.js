@@ -13,3 +13,21 @@ accident, typeof null also produces "object".
 The Object.keys function will be useful when you need to go over the properties
 of objects to compare them.
 */
+
+const deepEqual = (value1, value2) => {
+    if (null !== value1 && null !== value2 && typeof value1 == "object" && typeof value2 == "object") {
+        if (Object.keys(value1).length != Object.keys(value2).length) return false;
+        
+        for (const prop in value1) {
+            if (value2.hasOwnProperty(prop)) {
+                if (!deepEqual(value1[prop], value2[prop])) return false;
+            } else {
+                return false;
+            }
+        }
+
+        return true;
+    } else {
+        return value1 === value2;
+    }
+};
