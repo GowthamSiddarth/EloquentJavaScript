@@ -22,9 +22,15 @@ const countBy = (items, groupName) => {
     for (const item of items) {
         let name = groupName(item);
         let key = groups.findIndex(group => group.name == name);
-        if (-1 == key) groups.push({name: name, count: 1});
+        if (-1 == key) groups.push({ name: name, count: 1 });
         else groups[key].count++;
     }
 
     return groups;
 }
+
+const getDominantWritingDirection = text =>
+    countBy([...text].map(char => characterScript(char.codePointAt(0))).filter(script => script != null), script => script.direction).reduce((x, y) => x.count > y.count ? x : y).name;
+
+const text = "Hello!";
+console.log(getDominantWritingDirection(text));
