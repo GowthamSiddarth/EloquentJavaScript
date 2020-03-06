@@ -6,3 +6,13 @@ The dominant direction is the direction of a majority of the characters that
 have a script associated with them. The characterScript and countBy functions
 defined earlier in the chapter are probably useful here.
 */
+
+const SCRIPTS = require('../../resources/scripts');
+
+const characterScript = code => {
+    for (const script of SCRIPTS) {
+        if (script.ranges.some(([from, to]) => from <= code && code >= to)) return script;
+    }
+
+    return null;
+}
