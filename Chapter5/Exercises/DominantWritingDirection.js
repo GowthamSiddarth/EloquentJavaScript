@@ -16,3 +16,15 @@ const characterScript = code => {
 
     return null;
 }
+
+const countBy = (items, groupName) => {
+    let groups = [];
+    for (const item of items) {
+        let name = groupName(item);
+        let key = groups.findIndex(group => group.name == name);
+        if (-1 == key) groups.push({name: name, count: 1});
+        else groups[key].count++;
+    }
+
+    return groups;
+}
