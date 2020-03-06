@@ -6,3 +6,15 @@ like the && operator. Implement every as a function that takes an array and a pr
 as parameters. Write two versions, one using a loop and one using the some
 method.
 */
+
+const everyImplWithLoop = (array, predicate) => {
+    for (const elem of array) {
+        if (!predicate(elem)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+console.log(everyImplWithLoop([...Array(6).keys()], a => a < 5));
