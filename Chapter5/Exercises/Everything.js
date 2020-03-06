@@ -17,14 +17,7 @@ const everyImplWithLoop = (array, predicate) => {
     return true;
 }
 
-const everyImplWithSome = (array, predicate) => {
-    let count = 0;
-    array.some(elem => {
-        if (predicate(elem)) count++;
-        return false;
-    });
-    return count == array.length;
-}
+const everyImplWithSome = (array, predicate) => !array.some(elem => !predicate(elem));
 
 console.log(everyImplWithLoop([...Array(6).keys()], a => a < 5));
 console.log(everyImplWithSome([...Array(6).keys()], a => a < 5));
