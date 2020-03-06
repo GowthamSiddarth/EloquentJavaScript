@@ -8,3 +8,11 @@ starts from the beginning.
 When defining the function, you can use a regular loop to do the actual
 looping.
 */
+
+const customisedForLoop = (value, test, update, body) => {
+    for (let currVal = value; test(currVal); currVal = update(currVal)) {
+        body(currVal);
+    }
+}
+
+customisedForLoop(1, a => a < 10, a => a + 1, console.log);
