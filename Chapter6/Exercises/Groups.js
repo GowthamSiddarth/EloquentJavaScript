@@ -47,3 +47,12 @@ class Group {
         return this.items.join(", ");
     }
 }
+
+let group = Group.from([10, 20]);
+console.log(String(group));
+console.log(group.has(10));
+console.log(group.has(30));
+group.add(10);
+group.delete(10);
+console.log(group.has(10));
+console.log(String(group));
