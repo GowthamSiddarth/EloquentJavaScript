@@ -14,3 +14,32 @@ whether two values are the same.
 Give the class a static from method that takes an iterable object as argument
 and creates a group that contains all the values produced by iterating over it.
 */
+
+class Group {
+    constructor() {
+        this.items = [];
+    }
+
+    has(value) {
+        return this.items.includes(value);
+    }
+
+    add(value) {
+        if (!this.has(value)) {
+            this.items.push(value);
+        }
+    }
+
+    delete(value) {
+        this.items = this.items.filter(v => v != value);
+    }
+
+    static from(iterable) {
+        let group = new Group();
+        for (const item of iterable) {
+            group.add(item);
+        }
+
+        return group;
+    }
+}
