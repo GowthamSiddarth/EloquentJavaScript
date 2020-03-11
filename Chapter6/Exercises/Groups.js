@@ -42,4 +42,8 @@ class Group {
 
         return group;
     }
+
+    toString() {
+        return this.items.join(", ");
+    }
 }
