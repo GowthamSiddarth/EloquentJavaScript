@@ -15,6 +15,8 @@ Give the class a static from method that takes an iterable object as argument
 and creates a group that contains all the values produced by iterating over it.
 */
 
+let GroupIterator = require("../../Chapter6/Exercises/IterableGroups");
+
 class Group {
     constructor() {
         this.items = [];
@@ -43,6 +45,18 @@ class Group {
         return group;
     }
 
+    itemAt(index) {
+        return 0 <= index && index < this.length ? this.items[index] : undefined;
+    }
+
+    get length() {
+        return this.items.length;
+    }
+
+    [Symbol.iterator]() {
+        return new GroupIterator(this);
+    }
+
     toString() {
         return this.items.join(", ");
     }
@@ -56,3 +70,8 @@ group.add(10);
 group.delete(10);
 console.log(group.has(10));
 console.log(String(group));
+
+group = Group.from([...Array(10).keys()]);
+for (const item of group) {
+    console.log(item);
+}
