@@ -31,3 +31,12 @@ class Vec {
         return this.x + ", " + this.y;
     }
 }
+
+let vector1 = new Vec(2, 4);
+console.log(vector1.length);
+
+let vector2 = new Vec(1, 3);
+console.log(String(vector2));
+
+console.log(vector1.plus(vector2));
+console.log(vector1.minus(vector2));
